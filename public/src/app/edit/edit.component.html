@@ -1,0 +1,33 @@
+<h2>Edit this pet</h2>
+<button [routerLink]="['/']">Home</button>
+
+<form (submit) ="editCurrentWhat()">
+    Pet Name: <input name="name"[(ngModel)]="current_what.name"
+        required
+        minlength="3"
+        #name="ngModel"/>
+        <span *ngIf="name.errors && !name.pristine">Name is too short!</span>
+    <br>
+    Pet Type: <input type="text" name="type"[(ngModel)]="current_what.type"
+    required
+    minlength="3"
+    #type="ngModel">
+    <span *ngIf="type.errors && !type.pristine">Type is too short!</span>
+    
+    <br>
+    Description:<input type="text" name="description"[(ngModel)]="current_what.description"
+    required
+    minlength="3"
+    #description="ngModel">
+    <span *ngIf="description.errors && !description.pristine">Description is too short!</span>
+    
+    <br>
+    SKILLS:<br>
+    Skill 1:<input type="text" name="skill1"[(ngModel)]="current_what.skill1">
+    Skill 2:<input type="text" name="skill2"[(ngModel)]="current_what.skill2">
+    Skill 3:<input type="text" name="skill3"[(ngModel)]="current_what.skill3">
+ 
+    <button *ngIf= "!name.valid || !type.valid || !description.valid" disabled="disabled">Edit Pet</button>
+    <button *ngIf=" name.valid && type.valid && description.valid " type="submit" >Edit Pet</button>
+    <button [routerLink]="['/view', What_id ]">Cancel</button>
+</form>

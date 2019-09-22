@@ -1,0 +1,17 @@
+<h2>Details about {{view_one_what.name}}</h2>
+<body>
+    <a [routerLink]="['/']">Home</a><br>
+
+    <p>Pet Type:{{view_one_what.type}}</p>
+    <p>Description:{{view_one_what.description}}</p>
+    <p>Skills:<br>
+        {{view_one_what.skill1}}<br>   
+         {{view_one_what.skill2}}<br>  
+            {{view_one_what.skill3}}</p>
+
+    <p>Likes: {{view_one_what.like}}</p>
+    <button *ngIf="!clicked" (click)="Like(What_id)"  type="button" >Like this pet</button>
+    <button *ngIf="clicked" type="button" disabled>Like this pet</button>
+    <button (click)="Delete(What_id)">Adopt this pet!</button>
+    
+</body>
